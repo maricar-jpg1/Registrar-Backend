@@ -1,0 +1,13 @@
+const router = require('express').Router();
+const ctrl = require('../controllers/enrollmentsController');
+const auth = require('../middleware/auth');
+
+router.use(auth);
+
+router.get('/', ctrl.getAll);
+router.get('/:id', ctrl.getById);
+router.post('/', ctrl.create);
+router.patch('/:id/status', ctrl.updateStatus);
+router.delete('/:id', ctrl.remove);
+
+module.exports = router;
